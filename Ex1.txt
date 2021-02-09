@@ -1,0 +1,13 @@
+SELECT * FROM country ORDER BY country_id OFFSET 12 LIMIT 5;
+
+SELECT * FROM address WHERE city_id IN (SELECT city_id FROM city WHERE city LIKE 'A%');
+
+SELECT customer.first_name, customer.last_name, city.city FROM customer
+    INNER JOIN address ON address.address_id = customer.address_id  
+    INNER JOIN city ON city.city_id = address.city_id;
+    
+SELECT DISTINCT customer.first_name, customer.last_name from customer
+    INNER JOIN payment ON payment.customer_id = customer.customer_id
+    WHERE payment.amount > 11;
+    
+SELECT customer.first_name, COUNT(*) FROM customer GROUP BY customer.first_name HAVING COUNT(1) > 1;
