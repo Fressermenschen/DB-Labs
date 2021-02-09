@@ -1,1 +1,17 @@
-Empty for now
+CREATE VIEW active_user AS
+SELECT first_name, last_name, email
+FROM customer
+WHERE active >= 1;
+
+CREATE OR REPLACE VIEW Whales AS
+SELECT customer_id, amount
+FROM payment
+WHERE amount >= 10;
+
+SELECT AVG(amount) FROM Whales;
+
+CREATE OR REPLACE TRIGGER Mass_reset
+BEFORE INSERT
+ON public.staff
+FOR EACH ROW
+set staff.password = 1234567890;
