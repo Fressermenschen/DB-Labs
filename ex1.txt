@@ -11,3 +11,5 @@ match (a:Fighter) where not (a)-[:beats]->() return a;
 match (a:Fighter) where not (a)<-[:beats]-() return a;
 
 match (a:Fighter) set a.record = 0;
+
+Screens - https://drive.google.com/drive/folders/1IKVm3_5Ww2m52uMBpl-rdY621nj_ah3E?usp=sharing
